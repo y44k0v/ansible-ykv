@@ -1,0 +1,26 @@
+# show list of hosts
+ansible all --list-hosts -i inventory/main.yml
+
+# check connection to hosts
+ansible all -m ping -i inventory/main.yml
+
+# check uptime of hosts 
+ansible all -m command -a "uptime" -i inventory/main.yml
+
+# check memory of hosts
+ansible all -m command -a "free -m" -i inventory/main.yml
+
+# check disk space of hosts
+ansible all -m command -a "df -h" -i inventory/main.yml
+
+# check kernel version of hosts
+ansible all -m command -a "uname -r" -i inventory/main.yml
+
+# check all facts of hosts
+ansible all -m setup -i inventory/main.yml
+
+# check all facts of hosts and filter by specific fact
+ansible all -m setup -a "filter=ansible_distribution" -i inventory/main.yml
+
+# Aplying a playbook
+ansible-playbook -i inventory/main.yml playbooks/hello_world.yml

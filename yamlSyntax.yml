@@ -1,0 +1,115 @@
+# lists
+list:
+  - one
+  - two
+  - three
+
+list2: [one, two, three]
+
+# special characters
+# (: - { } [ ] ! # | > & % @) 
+
+# dictionary
+dict:
+  key1: value1
+  key2: value2
+  key3: value3
+
+dict2: {key1: value1, key2: value2, key3: value3}
+
+# dictionary with list
+dict3:
+  key1: [one, two, three]
+  key2: [four, five, six]
+  key3: [seven, eight, nine]
+
+toots:
+    name: Frederick Hibbert
+    job: frontman
+    number: '5446'
+    roles:
+      - singer
+      - guitarist
+      - organist
+
+# dictionary with dictionary
+dict4:
+  key1: {key1: value1, key2: value2, key3: value3}
+  key2: {key1: value1, key2: value2, key3: value3}
+  key3: {key1: value1, key2: value2, key3: value3}  
+
+# dictionary with list of dictionary
+dict5:
+  key1: [{key1: value1, key2: value2, key3: value3}, {key1: value1, key2: value2, key3: value3}]
+  key2: [{key1: value1, key2: value2, key3: value3}, {key1: value1, key2: value2, key3: value3}]
+  key3: [{key1: value1, key2: value2, key3: value3}, {key1: value1, key2: value2, key3: value3}]
+
+# Variables
+## dictionary reference
+number: '5446'
+num: "{{ number }}"
+
+
+toots2:
+    name: Frederick Hibbert
+    job: frontman
+    number: '5446'
+    roles:
+      - singer
+      - guitarist
+      - organist
+
+role: "{{ toots.roles[1] }}"  # guitarist
+
+
+## list reference
+savage:
+ - classy
+ - bougie
+ - ratchet
+
+iam: "{{ savage[1] }}"  # bougie
+
+# Multiline string
+# Literal bllock scalar
+multiline: |
+  This is a multiline string.
+  It can span multiple lines.
+  And it preserves the line breaks.
+
+# folded block scalar
+fold_newlines: >
+          I have conducted
+          a poll confirming haikus 
+          are overrated.
+
+          Notice how empty lines 
+          
+          force new lines in the result.
+
+# Nesting
+nephew: 
+    name: D'Angelo Barksdale
+    aka: "Dee"
+    role: lieutenant
+    location: 'The Pit'
+    pups:
+      - 'Bodie'
+      - 'Poot'
+      - 'Wallace'
+
+# Anchors and Aliases
+# Anchors
+anchor: &anchor
+  key1: value1
+  key2: value2
+  key3: value3  
+  alias: *anchor
+
+# Aliases
+alias: &alias
+  key1: value1
+  key2: value2
+  key3: value3  
+  alias: *alias
+  
