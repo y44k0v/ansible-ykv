@@ -22,5 +22,7 @@ ansible all -m setup -i inventory/main.yml
 # check all facts of hosts and filter by specific fact
 ansible all -m setup -a "filter=ansible_distribution" -i inventory/main.yml
 
-# Aplying a playbook
+# Applying a playbook
 ansible-playbook -i inventory/main.yml playbooks/hello_world.yml
+
+ansible-playbook -i inventory/main.yml playbooks/hostname.yml
